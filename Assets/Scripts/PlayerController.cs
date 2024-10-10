@@ -14,8 +14,11 @@ public class PlayerController : MonoBehaviour
     public bool overworld;
     public float speed;
 
+    private Gamemanager gm;
     private void Start()
     {
+        gm = FindObjectOfType<Gamemanager>();
+
         GetComponentInChildren<TopDown_AnimatorController>().enabled = overworld;
        GetComponentInChildren<Platformer_AnimatorController>().enabled = !overworld; //what do you think ! means?
         
@@ -41,13 +44,16 @@ public class PlayerController : MonoBehaviour
         yvector = xSpeed * ydirection;
 
         transform.Translate(xVector * Time.deltaTime, yvector * Time.deltaTime, 0);
+
     }
-    
+
+   
+
     //for organization, put other built-in Unity functions here
-    
-    
-    
-    
-    
+
+
+
+
+
     //after all Unity functions, your own functions can go here
 }
