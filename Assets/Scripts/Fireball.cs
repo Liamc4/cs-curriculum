@@ -11,7 +11,7 @@ public class Fireball : MonoBehaviour
     void Start()
     {
         timer = 2;
-        Vector3.MoveTowards(transform.position, targetpos, maxDistanceDelta: 2 * Time.deltaTime);
+        Vector3.MoveTowards(transform.position, targetpos, maxDistanceDelta: 4 * Time.deltaTime);
     }
 
     // Update is called once per frame
@@ -22,6 +22,6 @@ public class Fireball : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        transform.position = Vector3.MoveTowards(transform.position, targetpos, maxDistanceDelta: 2 * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, targetpos, maxDistanceDelta: 4 * Time.deltaTime);
     }
 }

@@ -9,8 +9,9 @@ using UnityEngine.SceneManagement;
 public class Health : MonoBehaviour
 
 {
+    //public float ftimer = 1;
     public int health;
-    public Gamemanager gm;
+    private Gamemanager gm;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,23 +26,30 @@ public class Health : MonoBehaviour
                 gm.ChangeHealth(-10);
             }
 
-            if (other.gameObject.CompareTag("Fireball"))
-            {
-                print("hcollide");
-                gm.ChangeHealth(-20);
-            }
-            if (other.gameObject.CompareTag("Enemy"))
+            
+           /* if (other.gameObject.CompareTag("Enemy"))
             {
                 gm.ChangeHealth(-20);
-            }
+            }*/
     }
 
-   
+   private void OnTriggerEnter2D(Collider2D other)
+   {
+       if (other.gameObject.CompareTag("Fireball")) //&& (ftimer == 0))
+       {
+           //print("hcollide");
+          // ftimer = 2;
+          Destroy(other.gameObject);
+           gm.ChangeHealth(- 5);
+           
+           
+       }
+   }
 
 
-    // Update is called once per frame
+   // Update is called once per frame
     void Update()
     {
-        
+        //ftimer -= Time.deltaTime;
     }
 }

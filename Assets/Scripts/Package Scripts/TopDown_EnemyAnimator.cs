@@ -6,14 +6,10 @@ public class TopDown_EnemyAnimator : MonoBehaviour
 {
     public bool IsAttacking { get; private set; }
 
-    Vector3 prevPos;
-    Animator anim;
+    public Vector3 prevPos;
+    [SerializeField] Animator anim;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        anim = GetComponent<Animator>();
-    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -44,11 +40,6 @@ public class TopDown_EnemyAnimator : MonoBehaviour
         }
 
         prevPos = transform.position;
-
-        if (Input.GetMouseButton(0))
-        {
-            Attack();
-        }
 
         IsAttacking = anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack");
     }
